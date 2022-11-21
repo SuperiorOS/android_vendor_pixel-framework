@@ -24,6 +24,14 @@
             settings:useAdminDisabledSummary="true"
             settings:userRestriction="no_config_brightness" />
 
+        <com.android.settingslib.PrimarySwitchPreference
+            android:key="reduce_bright_colors_preference"
+            android:title="@string/reduce_bright_colors_preference_title"
+            settings:keywords="@string/keywords_reduce_bright_colors"
+            android:persistent="false"
+            android:fragment="com.android.settings.accessibility.ToggleReduceBrightColorsPreferenceFragment"
+            settings:controller="com.android.settings.accessibility.ReduceBrightColorsPreferenceController"/>
+
     </PreferenceCategory>
 
     <PreferenceCategory
@@ -120,11 +128,17 @@
             android:title="@string/display_white_balance_title"
             settings:controller="com.android.settings.display.DisplayWhiteBalancePreferenceController" />
 
-        <SwitchPreference
+        <ListPreference
+            android:key="min_refresh_rate"
+            android:title="@string/min_refresh_rate_title"
+            android:summary="@string/summary_placeholder"
+            settings:controller="com.android.settings.display.MinRefreshRatePreferenceController" />
+
+        <ListPreference
             android:key="peak_refresh_rate"
-            android:summary="@string/peak_refresh_rate_summary"
-            android:title="@string/peak_refresh_rate_title"
-            settings:controller="com.android.settings.display.PeakRefreshRatePreferenceController" />
+            android:title="@string/max_refresh_rate_title"
+            android:summary="@string/summary_placeholder"
+            settings:controller="com.android.settings.display.PeakRefreshRatePreferenceController"/>
 
         <SwitchPreference
             android:key="touch_sensitivity"
@@ -148,9 +162,27 @@
             android:title="@string/lift_to_wake_title" />
 
         <SwitchPreference
+            android:key="enable_blurs_on_windows"
+            android:title="@string/window_blurs"/>
+
+        <SwitchPreference
             android:key="tap_to_wake"
             android:summary="@string/tap_to_wake_summary"
             android:title="@string/tap_to_wake" />
+
+        <Preference
+            android:key="display_cutout_force_fullscreen_settings"
+            android:title="@string/display_cutout_force_fullscreen_title"
+            android:summary="@string/display_cutout_force_fullscreen_summary"
+            android:fragment="com.android.settings.display.DisplayCutoutForceFullscreenSettings"
+            settings:controller="com.android.settings.display.DisplayCutoutForceFullscreenPreferenceController" />
+
+        <com.superior.support.preferences.SecureSettingSwitchPreference
+            android:key="screen_off_udfps_enabled"
+            android:title="@string/screen_off_fod_title"
+            android:summary="@string/screen_off_fod_summary"
+            android:defaultValue="true"
+            settings:controller="com.android.settings.security.UdfpsGesturePreferenceController" />
 
         <ListPreference
             android:key="theme"
