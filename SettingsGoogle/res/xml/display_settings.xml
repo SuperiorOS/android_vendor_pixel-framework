@@ -24,6 +24,14 @@
             settings:useAdminDisabledSummary="true"
             settings:userRestriction="no_config_brightness" />
 
+        <com.android.settingslib.PrimarySwitchPreference
+            android:key="reduce_bright_colors_preference"
+            android:title="@string/reduce_bright_colors_preference_title"
+            settings:keywords="@string/keywords_reduce_bright_colors"
+            android:persistent="false"
+            android:fragment="com.android.settings.accessibility.ToggleReduceBrightColorsPreferenceFragment"
+            settings:controller="com.android.settings.accessibility.ReduceBrightColorsPreferenceController"/>
+
     </PreferenceCategory>
 
     <PreferenceCategory
@@ -94,12 +102,11 @@
     <PreferenceCategory
         android:title="@string/category_name_display_controls">
 
-        <com.android.settingslib.PrimarySwitchPreference
-            android:fragment="com.android.settings.display.SmartAutoRotatePreferenceFragment"
-            android:key="auto_rotate"
-            android:title="@string/accelerometer_title"
-            settings:controller="com.android.settings.display.SmartAutoRotatePreferenceController"
-            settings:keywords="@string/keywords_auto_rotate" />
+        <Preference
+            android:key="display_rotation"
+            android:fragment="com.android.settings.display.DisplayRotation"
+            android:title="@string/display_rotation_title"
+            settings:controller="com.android.settings.display.DisplayRotationPreferenceController" />
 
         <Preference
             android:fragment="com.android.settings.display.SmartAutoRotatePreferenceFragment"
@@ -149,6 +156,10 @@
             android:title="@string/lift_to_wake_title" />
 
         <SwitchPreference
+            android:key="enable_blurs_on_windows"
+            android:title="@string/window_blurs"/>
+
+        <SwitchPreference
             android:key="tap_to_wake"
             android:summary="@string/tap_to_wake_summary"
             android:title="@string/tap_to_wake" />
@@ -165,4 +176,22 @@
 
     </PreferenceCategory>
 
+    <PreferenceCategory
+        android:title="@string/customization_category_title">
+
+        <Preference
+            android:key="display_cutout_force_fullscreen_settings"
+            android:title="@string/display_cutout_force_fullscreen_title"
+            android:summary="@string/display_cutout_force_fullscreen_summary"
+            android:fragment="com.android.settings.display.DisplayCutoutForceFullscreenSettings"
+            settings:controller="com.android.settings.display.DisplayCutoutForceFullscreenPreferenceController" />
+
+        <!-- Hidden apps -->
+        <Preference
+            android:key="hidden_apps"
+            android:title="@string/hidden_apps_title"
+            android:summary="@string/hidden_apps_summary"
+            android:persistent="false"
+            android:fragment="com.android.settings.display.HiddenAppSettingsFragment" />
+    </PreferenceCategory>
 </PreferenceScreen>

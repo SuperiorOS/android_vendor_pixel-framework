@@ -50,18 +50,24 @@
         settings:searchable="true" />
 
     <Preference
+        android:key="high_power_apps"
+        android:title="@string/high_power_apps"
+        android:summary="@string/high_power_apps_summary">
+        <intent android:action="android.settings.IGNORE_BATTERY_OPTIMIZATION_SETTINGS" />
+    </Preference>
+
+    <com.android.settings.fuelgauge.batteryusage.PowerGaugePreference
+        android:key="battery_temperature"
+        android:title="@string/battery_temperature"
+        android:selectable="false" />
+
+    <Preference
         android:fragment="com.google.android.settings.fuelgauge.reversecharging.ReverseChargingDashboardFragment"
         android:key="reverse_charging"
         android:title="@string/reverse_charging_title"
         settings:controller="com.google.android.settings.fuelgauge.reversecharging.ReverseChargingPreferenceController"
         settings:keywords="@string/keywords_battery_share_settings"
         settings:searchable="true" />
-
-    <SwitchPreference
-        android:key="battery_percentage"
-        android:summary="@string/battery_percentage_description"
-        android:title="@string/battery_percentage"
-        settings:controller="com.android.settings.display.BatteryPercentagePreferenceController" />
 
     <com.android.settingslib.widget.FooterPreference
         android:key="power_usage_footer"
